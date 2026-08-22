@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>درگاه بله</title>
+    <link rel="stylesheet" href="css/info.css">
+</head>
+<body>
+    <nav class="ticks" aria-label="بخش‌ها"></nav>
+    <p class="count" aria-live="polite"><span data-now>1</span> / 11</p>
+
+    <main class="deck" id="deck">
+        <section class="panel" style="--from: 0; --to: 420; --bg: #121818"></section>
+        <section class="panel" style="--from: 420; --to: 1014; --bg: #F6F0E4"></section>
+        <section class="panel" style="--from: 1014; --to: 1578; --bg: #12A896"></section>
+        <section class="panel" style="--from: 1578; --to: 2040; --bg: #E4A83C"></section>
+        <section class="panel" style="--from: 2040; --to: 3126; --bg: #EAE4DE"></section>
+        <section class="panel" style="--from: 3126; --to: 3558; --bg: #F6D8D8"></section>
+        <section class="panel" style="--from: 3558; --to: 4218; --bg: #CCEAD8"></section>
+        <section class="panel" style="--from: 4218; --to: 4458; --bg: #F0E4D2"></section>
+        <section class="panel" style="--from: 4458; --to: 4992; --bg: #121818"></section>
+        <section class="panel" style="--from: 4992; --to: 5724; --bg: #30C696"></section>
+        <section class="panel" style="--from: 5724; --to: 6114; --bg: #F3DED6"></section>
+    </main>
+
+    <script>
+        (function () {
+            const deck = document.getElementById("deck");
+            const panels = Array.from(deck.querySelectorAll(".panel"));
+            const ticks = document.querySelector(".ticks");
+            const now = document.querySelector("[data-now]");
+            const src = "images/info.png";
+            let index = 0;
+            let lock = false;
+
+            panels.forEach(function (panel, i) {
+                const frame = document.createElement("div");
+                frame.className = "frame";
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = "درگاه بله";
+                img.width = 960;
+                img.height = 6114;
+                frame.appendChild(img);
+                panel.appendChild(frame);
+
+                const tick = document.createElement("button");
+                tick.type = "button";
+                tick.setAttribute("aria-label", "بخش " + (i + 1));
+                tick.addEventListener("click", function () { go(i); });
+                ticks.appendChild(tick);
+            });
+
+            function go(i) {
+                index = Math.max(0, Math.min(panels.length - 1, i));
+                panels[index].scrollIntoView({ behavior: "smooth", block: "start" });
+                paint();
+            }
+
+            function paint() {
+                ticks.querySelectorAll("button").forEach(function (btn, i) {
+                    btn.classList.toggle("is-on", i === index);
+                });
+                now.textContent = String(index + 1);
+            }
+
+            const observer = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        index = panels.indexOf(entry.target);
+                        paint();
+                    });
+                },
+                { root: deck, threshold: 0.55 }
+            );
+            panels.forEach(function (panel) { observer.observe(panel); });
+
+            deck.addEventListener(
+                "wheel",
+                function (e) {
+                    if (Math.abs(e.deltaY) < 8) return;
+                    e.preventDefault();
+                    if (lock) return;
+                    lock = true;
+                    go(index + (e.deltaY > 0 ? 1 : -1));
+                    setTimeout(function () { lock = false; }, 640);
+                },
+                { passive: false }
+            );
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
+                    e.preventDefault();
+                    go(index + 1);
+                }
+                if (e.key === "ArrowUp" || e.key === "PageUp") {
+                    e.preventDefault();
+                    go(index - 1);
+                }
+            });
+
+            paint();
+        })();
+    </script>
+</body>
+</html>
