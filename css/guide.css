@@ -1,0 +1,384 @@
+@font-face {
+    font-family: Kalameh;
+    src: url("../fonts/Kalameh(FaNum)-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Kalameh;
+    src: url("../fonts/Kalameh(FaNum)-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Kalameh;
+    src: url("../fonts/Kalameh(FaNum)-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Kalameh;
+    src: url("../fonts/Kalameh(FaNum)-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Kalameh;
+    src: url("../fonts/Kalameh(FaNum)-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Kalameh;
+    src: url("../fonts/Kalameh(FaNum)-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --hall: #062824;
+    --hall-2: #0a3d36;
+    --sheet: #f6f1e4;
+    --sheet-2: #efe6d2;
+    --ink: #14241f;
+    --muted: #5c6b64;
+    --brass: #b8892d;
+    --brass-2: #e2c36a;
+    --bale: #1aa887;
+    --bale-deep: #0e7a66;
+    --line: #d7ccb4;
+    --danger: #b42318;
+    --slot: #ebe3cf;
+    --display: Kalameh, Tahoma, sans-serif;
+    --body: Kalameh, Tahoma, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body.guide {
+    font-family: var(--body);
+    color: var(--ink);
+    background:
+        radial-gradient(900px 420px at 100% -10%, #1aa88722, transparent 55%),
+        linear-gradient(180deg, var(--hall) 0 220px, #08332e 220px 100%);
+    line-height: 1.9;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+}
+
+.guide-nav {
+    width: min(860px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 1.1rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: #e8fff8;
+}
+
+.guide-brand {
+    font-family: var(--display);
+    font-size: 1.7rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+}
+
+.guide-nav a:not(.guide-brand) {
+    color: #c7efe4;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.92rem;
+}
+
+.guide-hero {
+    width: min(860px, calc(100% - 2rem));
+    margin: 1.6rem auto 0;
+    color: #eafff8;
+}
+
+.guide-hero p.kicker {
+    margin: 0;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    color: var(--brass-2);
+}
+
+.guide-hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.25;
+    margin: 0.25rem 0 0.7rem;
+    font-weight: 800;
+}
+
+.guide-hero .lead {
+    margin: 0;
+    max-width: 40rem;
+    color: #c5e6dc;
+    font-size: 1.02rem;
+}
+
+.guide-sheet {
+    width: min(860px, calc(100% - 2rem));
+    margin: 2rem auto 3.5rem;
+    background: var(--sheet);
+    border: 1px solid #c9b992;
+    box-shadow: 0 28px 60px #0008;
+    padding: 1.6rem 1.25rem 2.2rem;
+}
+
+.guide-intro {
+    margin: 0 0 1.6rem;
+    padding: 0 0.3rem 1.2rem;
+    border-bottom: 1px dashed var(--line);
+}
+
+.guide-intro h2 {
+    margin: 0 0 0.45rem;
+    font-size: 1.25rem;
+}
+
+.guide-intro p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.guide-step {
+    display: grid;
+    grid-template-columns: 5.4rem 1fr;
+    gap: 1rem 1.15rem;
+    padding: 1.35rem 0.2rem 1.5rem;
+    border-bottom: 1px dashed var(--line);
+}
+
+.guide-step:last-of-type {
+    border-bottom: 0;
+}
+
+.guide-ticket {
+    width: 5.4rem;
+    min-height: 6.4rem;
+    background:
+        linear-gradient(180deg, #f4e4b0, var(--brass-2) 40%, var(--brass));
+    color: #3a2808;
+    text-align: center;
+    padding: 0.7rem 0.3rem 0.8rem;
+    position: relative;
+    box-shadow: 0 8px 0 #8a6718;
+}
+
+.guide-ticket::before,
+.guide-ticket::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: radial-gradient(circle at 8px 0, transparent 6px, var(--sheet) 7px) 0 0 / 16px 8px repeat-x;
+}
+
+.guide-ticket::before {
+    top: -8px;
+}
+
+.guide-ticket::after {
+    bottom: -8px;
+    transform: rotate(180deg);
+}
+
+.guide-ticket b {
+    display: block;
+    font-size: 1.85rem;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.guide-ticket span {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.guide-copy h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.18rem;
+}
+
+.guide-copy p {
+    margin: 0 0 0.7rem;
+    color: #2a3833;
+}
+
+.guide-copy p:last-child {
+    margin-bottom: 0;
+}
+
+.guide-copy ol,
+.guide-copy ul {
+    margin: 0 0 0.8rem;
+    padding-right: 1.2rem;
+}
+
+.guide-copy li + li {
+    margin-top: 0.25rem;
+}
+
+.guide-note {
+    background: #fff6e8;
+    border-right: 4px solid var(--brass);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.92rem;
+    margin: 0.6rem 0 0.85rem;
+}
+
+.guide-warn {
+    background: #fdecea;
+    border-right: 4px solid var(--danger);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.92rem;
+    margin: 0.6rem 0 0.85rem;
+}
+
+.guide-code {
+    display: block;
+    direction: ltr;
+    text-align: left;
+    background: #14241f;
+    color: #e8fff4;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.86rem;
+    overflow-x: auto;
+    margin: 0.55rem 0 0.9rem;
+    word-break: break-all;
+}
+
+.guide-shot {
+    margin: 0.85rem 0 0;
+}
+
+.guide-shot-well {
+    min-height: 220px;
+    background:
+        repeating-linear-gradient(-45deg, transparent 0 8px, #00000008 8px 9px),
+        var(--slot);
+    border: 2px dashed #b7aa8c;
+    display: grid;
+    place-items: center;
+    padding: 0.8rem;
+}
+
+.guide-shot-well img {
+    width: 100%;
+    height: auto;
+    border: 0;
+}
+
+.guide-shot-hint {
+    color: #8a7d62;
+    font-weight: 800;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+}
+
+.guide-shot-well:has(img:not([hidden])) .guide-shot-hint {
+    display: none;
+}
+
+.guide-shot figcaption {
+    margin: 0.4rem 0 0;
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.guide-end {
+    margin-top: 1.4rem;
+    padding: 1.1rem 1rem;
+    background: #e7f6f1;
+    border: 1px solid #b7e0d4;
+}
+
+.guide-end h2 {
+    margin: 0 0 0.4rem;
+    font-size: 1.2rem;
+}
+
+.guide-end p {
+    margin: 0;
+}
+
+.guide-foot {
+    width: min(860px, calc(100% - 2rem));
+    margin: 0 auto 2rem;
+    color: #9ecfc3;
+    font-size: 0.86rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.guide-foot a {
+    color: #d7f6ee;
+}
+
+@media (max-width: 640px) {
+    .guide-step {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-ticket {
+        width: 100%;
+        min-height: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 0.55rem;
+        box-shadow: none;
+    }
+
+    .guide-ticket b {
+        font-size: 1.4rem;
+    }
+
+    .guide-ticket span {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,1726 @@
+/*
+ * Bale Pay — theme skins.
+ * Every theme paints the same markup: body > shell > masthead + slip.
+ * Colors always come from the CSS variables so the admin color picker keeps working.
+ */
+
+/*
+ * Themes with a dark page background but a light card need a light masthead,
+ * otherwise the title inherits the dark card ink and disappears.
+ */
+.theme-ticket .bale-pay-masthead h1,
+.theme-tile .bale-pay-masthead h1,
+.theme-rug .bale-pay-masthead h1,
+.theme-anar .bale-pay-masthead h1,
+.theme-termeh .bale-pay-masthead h1,
+.theme-bazaar .bale-pay-masthead h1,
+.theme-glass .bale-pay-masthead h1,
+.theme-forest .bale-pay-masthead h1,
+.theme-ocean .bale-pay-masthead h1,
+.theme-stamp .bale-pay-masthead h1,
+.theme-copper .bale-pay-masthead h1,
+.theme-sunset .bale-pay-masthead h1,
+.theme-mono .bale-pay-masthead h1,
+.theme-card .bale-pay-masthead h1 {
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+}
+
+.theme-ticket .bale-pay-kicker,
+.theme-tile .bale-pay-kicker,
+.theme-rug .bale-pay-kicker,
+.theme-anar .bale-pay-kicker,
+.theme-termeh .bale-pay-kicker,
+.theme-bazaar .bale-pay-kicker,
+.theme-glass .bale-pay-kicker,
+.theme-forest .bale-pay-kicker,
+.theme-ocean .bale-pay-kicker,
+.theme-stamp .bale-pay-kicker,
+.theme-copper .bale-pay-kicker,
+.theme-sunset .bale-pay-kicker,
+.theme-mono .bale-pay-kicker,
+.theme-card .bale-pay-kicker {
+    color: #ffffffc4;
+    -webkit-text-fill-color: #ffffffc4;
+}
+
+/* ============================================================ کاغذ و چاپ */
+
+/* 1. قبض بازار */
+.theme-receipt {
+    background:
+        radial-gradient(900px 380px at 50% -80px, color-mix(in srgb, var(--accent) 35%, transparent), transparent 70%),
+        repeating-linear-gradient(0deg, color-mix(in srgb, var(--bg) 88%, #000) 0 2px, var(--bg) 2px 5px);
+}
+
+.theme-receipt .bale-pay-slip {
+    box-shadow: 0 16px 36px color-mix(in srgb, #000 14%, transparent);
+}
+
+.theme-receipt .bale-pay-slip::before,
+.theme-receipt .bale-pay-slip::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: radial-gradient(circle at 8px 0, transparent 7px, var(--surface) 8px) 0 0 / 16px 10px repeat-x;
+}
+
+.theme-receipt .bale-pay-slip::before { top: -10px; }
+.theme-receipt .bale-pay-slip::after { bottom: -10px; transform: rotate(180deg); }
+
+/* 2. دفتر حساب */
+.theme-ledger {
+    background:
+        repeating-linear-gradient(var(--bg), var(--bg) 27px, color-mix(in srgb, var(--line) 70%, #000) 28px);
+}
+
+.theme-ledger .bale-pay-slip {
+    border: 0;
+    border-right: 4px solid var(--danger);
+    box-shadow: 0 10px 0 color-mix(in srgb, var(--line) 80%, #000), 0 18px 30px #0001;
+    background-image: repeating-linear-gradient(
+        var(--surface),
+        var(--surface) 31px,
+        color-mix(in srgb, var(--line) 80%, transparent) 32px
+    );
+}
+
+.theme-ledger .bale-pay-amount {
+    border-top: 2px solid var(--ink);
+    padding-top: 0.45rem;
+}
+
+.theme-ledger .bale-pay-btn {
+    border-radius: 0;
+}
+
+/* 3. مُهر لاکی */
+.theme-wax {
+    background: radial-gradient(ellipse at 50% 0, color-mix(in srgb, #fff 18%, var(--bg)), var(--bg));
+}
+
+.theme-wax .bale-pay-slip {
+    border: 1px dashed var(--line);
+    box-shadow: 0 16px 28px #0002;
+}
+
+.theme-wax .bale-pay-btn {
+    width: 7.2rem;
+    height: 7.2rem;
+    margin: 1rem auto 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    line-height: 1.3;
+    box-shadow:
+        inset 0 -10px 0 color-mix(in srgb, #000 18%, transparent),
+        0 10px 0 color-mix(in srgb, var(--accent) 70%, #000);
+    transform: rotate(-6deg);
+}
+
+.theme-wax .bale-pay-stamp {
+    border-style: dashed;
+}
+
+/* 4. بلیت سفر */
+.theme-ticket {
+    background: linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 70%, #000));
+}
+
+.theme-ticket .bale-pay-slip {
+    border-radius: 1.1rem;
+    padding-right: 1.3rem;
+    box-shadow: 0 18px 36px #0005;
+}
+
+.theme-ticket .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 18px;
+    width: 14px;
+    background: repeating-linear-gradient(180deg, var(--ink) 0 2px, transparent 2px 5px);
+    opacity: 0.55;
+}
+
+.theme-ticket .bale-pay-slip::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    bottom: -8px;
+    right: 72px;
+    border-right: 2px dashed var(--line);
+}
+
+.theme-ticket .bale-pay-ref {
+    background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+}
+
+.theme-ticket .bale-pay-btn {
+    border-radius: 0.4rem;
+}
+
+.theme-ticket .bale-pay-label,
+.theme-ticket .bale-pay-copy,
+.theme-ticket .bale-pay-amount,
+.theme-ticket .bale-pay-title,
+.theme-ticket .bale-pay-error,
+.theme-ticket .bale-pay-test {
+    padding-right: 0.2rem;
+    margin-right: 1.4rem;
+}
+
+/* 5. خوشنویسی */
+.theme-nastaliq {
+    background:
+        radial-gradient(600px 300px at 50% 0, color-mix(in srgb, #fff 40%, transparent), transparent 70%),
+        var(--bg);
+}
+
+.theme-nastaliq .bale-pay-masthead h1 {
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.theme-nastaliq .bale-pay-slip {
+    border: 1px solid var(--line);
+    outline: 1px solid var(--line);
+    outline-offset: 5px;
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent 33px,
+        color-mix(in srgb, var(--line) 60%, transparent) 34px
+    );
+    box-shadow: 0 14px 30px #0001;
+}
+
+.theme-nastaliq .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0.55rem;
+    border-right: 2px solid color-mix(in srgb, var(--amount) 45%, transparent);
+}
+
+.theme-nastaliq .bale-pay-amount {
+    color: var(--amount);
+    font-weight: 800;
+}
+
+.theme-nastaliq .bale-pay-btn {
+    border-radius: 0.2rem;
+    letter-spacing: 0.04em;
+}
+
+/* ================================================================ ایرانی */
+
+/* 6. کاشی ایرانی */
+.theme-tile {
+    background:
+        repeating-conic-gradient(from 45deg, color-mix(in srgb, var(--bg) 86%, #000) 0 8%, var(--bg) 0 16%),
+        var(--bg);
+    background-size: 42px 42px, auto;
+}
+
+.theme-tile .bale-pay-slip {
+    border: 3px solid var(--accent);
+    box-shadow:
+        0 0 0 6px var(--surface),
+        0 0 0 9px color-mix(in srgb, var(--accent) 55%, var(--line)),
+        0 18px 34px #0004;
+}
+
+.theme-tile .bale-pay-masthead h1 {
+    background: linear-gradient(90deg, #ffffff, color-mix(in srgb, var(--accent) 40%, #ffffff));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.theme-tile .bale-pay-kicker::before,
+.theme-tile .bale-pay-kicker::after {
+    content: "✦";
+    margin: 0 0.4rem;
+    color: var(--accent);
+}
+
+/* 7. فرش دستباف */
+.theme-rug {
+    background:
+        repeating-conic-gradient(from 30deg at 50% 50%, color-mix(in srgb, var(--bg) 82%, #000) 0 6%, var(--bg) 0 12%),
+        var(--bg);
+    background-size: 64px 64px, auto;
+}
+
+.theme-rug .bale-pay-slip {
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 5px var(--surface), 0 0 0 7px var(--accent), 0 20px 40px #0005;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.theme-rug .bale-pay-slip::before,
+.theme-rug .bale-pay-slip::after {
+    content: "";
+    position: absolute;
+    left: 0.6rem;
+    right: 0.6rem;
+    height: 12px;
+    background:
+        repeating-linear-gradient(
+            135deg,
+            var(--accent) 0 6px,
+            transparent 6px 12px
+        );
+    opacity: 0.75;
+}
+
+.theme-rug .bale-pay-slip::before { top: 0.6rem; }
+.theme-rug .bale-pay-slip::after { bottom: 0.6rem; }
+
+.theme-rug .bale-pay-btn {
+    border-radius: 0.35rem;
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent-ink) 45%, transparent);
+}
+
+/* 8. فیروزه کویر */
+.theme-turquoise {
+    background:
+        radial-gradient(700px 320px at 50% -60px, color-mix(in srgb, var(--accent) 40%, transparent), transparent 68%),
+        var(--bg);
+}
+
+.theme-turquoise .bale-pay-slip {
+    border: 2px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+    border-radius: 0.9rem;
+    box-shadow: 0 18px 36px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.theme-turquoise .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    inset: 0.4rem;
+    border: 1px dashed color-mix(in srgb, var(--accent) 40%, transparent);
+    border-radius: 0.6rem;
+    pointer-events: none;
+}
+
+.theme-turquoise .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-turquoise .bale-pay-btn {
+    border-radius: 0.7rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 88%, #fff), var(--accent));
+}
+
+/* 9. سرای بازار */
+.theme-bazaar {
+    background:
+        repeating-linear-gradient(0deg, color-mix(in srgb, var(--bg) 88%, #000) 0 1px, transparent 1px 26px),
+        repeating-linear-gradient(90deg, color-mix(in srgb, var(--bg) 88%, #000) 0 1px, transparent 1px 54px),
+        var(--bg);
+    background-position: 0 0, 0 0;
+}
+
+.theme-bazaar .bale-pay-slip {
+    border-radius: 8rem 8rem 0.6rem 0.6rem;
+    padding-top: 2.2rem;
+    border: 2px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+    box-shadow: 0 20px 40px #0004;
+}
+
+.theme-bazaar .bale-pay-masthead h1 {
+    color: color-mix(in srgb, #fff 88%, var(--accent));
+}
+
+.theme-bazaar .bale-pay-kicker {
+    color: color-mix(in srgb, #fff 70%, var(--accent));
+}
+
+.theme-bazaar .bale-pay-btn {
+    border-radius: 999px;
+}
+
+/* 10. انار */
+.theme-anar {
+    background:
+        radial-gradient(circle at 18% 22%, color-mix(in srgb, var(--accent) 55%, transparent) 0 6px, transparent 7px),
+        radial-gradient(circle at 82% 12%, color-mix(in srgb, var(--accent) 45%, transparent) 0 5px, transparent 6px),
+        radial-gradient(circle at 72% 86%, color-mix(in srgb, var(--accent) 40%, transparent) 0 7px, transparent 8px),
+        radial-gradient(circle at 24% 78%, color-mix(in srgb, var(--accent) 35%, transparent) 0 4px, transparent 5px),
+        linear-gradient(160deg, color-mix(in srgb, var(--bg) 70%, #000), var(--bg));
+}
+
+.theme-anar .bale-pay-slip {
+    border-radius: 1.6rem 1.6rem 1.6rem 3rem;
+    border: 0;
+    box-shadow: 0 22px 46px #0006;
+}
+
+.theme-anar .bale-pay-amount {
+    color: var(--amount);
+    font-size: 2.05rem;
+}
+
+.theme-anar .bale-pay-btn {
+    border-radius: 999px;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+/* 11. شب یلدا */
+.theme-yalda {
+    background:
+        radial-gradient(1.6px 1.6px at 12% 18%, #fff9, transparent),
+        radial-gradient(1.4px 1.4px at 68% 12%, #fff8, transparent),
+        radial-gradient(1.8px 1.8px at 34% 42%, #fff7, transparent),
+        radial-gradient(1.5px 1.5px at 84% 58%, #fff8, transparent),
+        radial-gradient(1.6px 1.6px at 22% 76%, #fff6, transparent),
+        radial-gradient(700px 400px at 50% 110%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 60%),
+        var(--bg);
+}
+
+.theme-yalda .bale-pay-slip {
+    border-radius: 1.2rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+    box-shadow: 0 20px 44px #0007;
+}
+
+.theme-yalda .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 1.2rem;
+    right: 1.2rem;
+    height: 4px;
+    border-radius: 0 0 999px 999px;
+    background: linear-gradient(90deg, var(--accent), var(--amount), var(--success));
+}
+
+.theme-yalda .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-yalda .bale-pay-btn {
+    border-radius: 999px;
+}
+
+/* 12. نوروز */
+.theme-nowruz {
+    background:
+        radial-gradient(600px 260px at 80% -40px, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
+        var(--bg);
+}
+
+.theme-nowruz .bale-pay-slip {
+    border-radius: 1.2rem;
+    border: 0;
+    box-shadow: 0 16px 34px color-mix(in srgb, var(--accent) 18%, transparent);
+    overflow: hidden;
+}
+
+.theme-nowruz .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--accent) 0 14px, var(--amount) 14px 28px);
+}
+
+.theme-nowruz .bale-pay-kicker::after {
+    content: " ✿";
+    color: var(--accent);
+}
+
+.theme-nowruz .bale-pay-btn {
+    border-radius: 0.9rem;
+}
+
+/* 13. ترمه */
+.theme-termeh {
+    background:
+        repeating-radial-gradient(circle at 0 0, color-mix(in srgb, var(--amount) 22%, transparent) 0 2px, transparent 2px 20px),
+        linear-gradient(180deg, color-mix(in srgb, var(--bg) 75%, #000), var(--bg));
+    background-size: 40px 40px, auto;
+}
+
+.theme-termeh .bale-pay-slip {
+    border: 2px solid color-mix(in srgb, var(--amount) 60%, var(--line));
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 80%, #000), 0 20px 40px #0005;
+}
+
+.theme-termeh .bale-pay-title,
+.theme-termeh .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-termeh .bale-pay-btn {
+    border-radius: 0.4rem;
+    border: 1px solid color-mix(in srgb, var(--amount) 70%, transparent);
+}
+
+/* ==================================================== مدرن و مینیمال */
+
+/* 14. شیشه مات */
+.theme-glass {
+    background:
+        radial-gradient(900px 500px at 10% -10%, color-mix(in srgb, var(--accent) 45%, transparent), transparent 50%),
+        radial-gradient(700px 400px at 110% 10%, color-mix(in srgb, var(--amount) 35%, transparent), transparent 46%),
+        linear-gradient(165deg, var(--bg), #120c28);
+}
+
+.theme-glass .bale-pay-slip {
+    border-radius: 1.4rem;
+    background: color-mix(in srgb, var(--surface) 78%, transparent);
+    border: 1px solid color-mix(in srgb, #fff 45%, var(--line));
+    backdrop-filter: blur(16px);
+    box-shadow: 0 20px 50px #0004;
+}
+
+.theme-glass .bale-pay-btn {
+    border-radius: 1rem;
+}
+
+/* 15. سوئیسی */
+.theme-swiss {
+    background:
+        linear-gradient(90deg, var(--accent) 0 6px, transparent 6px),
+        var(--bg);
+}
+
+.theme-swiss .bale-pay-masthead {
+    text-align: right;
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 0.6rem;
+}
+
+.theme-swiss .bale-pay-masthead h1 {
+    font-size: 1.75rem;
+    letter-spacing: -0.01em;
+}
+
+.theme-swiss .bale-pay-slip {
+    border: 0;
+    border-top: 6px solid var(--accent);
+    box-shadow: 0 1px 0 var(--line), 0 14px 28px #0000000d;
+}
+
+.theme-swiss .bale-pay-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.68rem;
+}
+
+.theme-swiss .bale-pay-amount {
+    font-size: 2.4rem;
+    letter-spacing: -0.02em;
+}
+
+.theme-swiss .bale-pay-btn {
+    border-radius: 0;
+}
+
+/* 16. تک‌رنگ */
+.theme-mono {
+    background:
+        repeating-linear-gradient(90deg, color-mix(in srgb, #fff 8%, transparent) 0 1px, transparent 1px 12px),
+        var(--bg);
+}
+
+.theme-mono .bale-pay-masthead h1,
+.theme-mono .bale-pay-kicker {
+    color: #fff;
+}
+
+.theme-mono .bale-pay-slip {
+    border: 2px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 10px 10px 0 color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+.theme-mono .bale-pay-amount {
+    font-size: 2.3rem;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.5rem;
+}
+
+.theme-mono .bale-pay-btn {
+    border-radius: 0;
+}
+
+/* 17. پاستل */
+.theme-pastel {
+    background:
+        radial-gradient(320px 320px at 12% 8%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+        radial-gradient(360px 360px at 92% 22%, color-mix(in srgb, var(--danger) 20%, transparent), transparent 70%),
+        radial-gradient(300px 300px at 60% 96%, color-mix(in srgb, var(--success) 22%, transparent), transparent 70%),
+        var(--bg);
+}
+
+.theme-pastel .bale-pay-slip {
+    border: 0;
+    border-radius: 1.75rem;
+    box-shadow: 0 18px 40px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.theme-pastel .bale-pay-btn {
+    border-radius: 999px;
+    box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+/* 18. بروتالیست */
+.theme-brutal .bale-pay-slip {
+    border: 3px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 8px 8px 0 var(--ink);
+}
+
+.theme-brutal .bale-pay-masthead h1 {
+    text-transform: none;
+    letter-spacing: -0.02em;
+}
+
+.theme-brutal .bale-pay-label {
+    background: var(--ink);
+    color: var(--bg);
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+}
+
+.theme-brutal .bale-pay-amount {
+    font-size: 2.4rem;
+}
+
+.theme-brutal .bale-pay-btn {
+    border: 3px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 5px 5px 0 var(--ink);
+}
+
+.theme-brutal .bale-pay-btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* 19. نرم */
+.theme-soft {
+    background: var(--bg);
+}
+
+.theme-soft .bale-pay-slip {
+    border: 0;
+    border-radius: 1.6rem;
+    box-shadow:
+        10px 10px 24px color-mix(in srgb, var(--line) 85%, #000),
+        -10px -10px 24px color-mix(in srgb, #fff 85%, var(--surface));
+}
+
+.theme-soft .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-soft .bale-pay-btn {
+    border-radius: 1rem;
+    box-shadow:
+        6px 6px 14px color-mix(in srgb, var(--accent) 30%, transparent),
+        -4px -4px 12px color-mix(in srgb, #fff 70%, transparent);
+}
+
+.theme-soft .bale-pay-test {
+    border-radius: 0.9rem;
+}
+
+/* 20. خطی */
+.theme-linear {
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--line) 60%, transparent) 0 1px, transparent 1px 32px),
+        linear-gradient(0deg, color-mix(in srgb, var(--line) 60%, transparent) 0 1px, transparent 1px 32px),
+        var(--bg);
+    background-size: 32px 32px, 32px 32px, auto;
+}
+
+.theme-linear .bale-pay-slip {
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    box-shadow: 0 0 0 1px #0000, 0 24px 48px #0008;
+}
+
+.theme-linear .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: 1.2rem;
+    width: 4.5rem;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 14px var(--accent);
+}
+
+.theme-linear .bale-pay-label {
+    letter-spacing: 0.14em;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+}
+
+.theme-linear .bale-pay-btn {
+    border-radius: 0.55rem;
+}
+
+/* 21. بانکی */
+.theme-bank {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 12%, var(--bg)), var(--bg));
+}
+
+.theme-bank .bale-pay-slip {
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    box-shadow: 0 12px 28px #0f4c8114;
+    overflow: hidden;
+}
+
+.theme-bank .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, var(--success)));
+}
+
+.theme-bank .bale-pay-amount {
+    background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+    border-radius: 0.7rem;
+    padding: 0.6rem 0.8rem;
+}
+
+.theme-bank .bale-pay-btn {
+    border-radius: 0.7rem;
+}
+
+/* 22. کارت بانکی — platinum card, dark navy type (never inherit Mini App white text) */
+.theme-card {
+    background:
+        radial-gradient(800px 400px at 80% -10%, #c9a22733, transparent 60%),
+        linear-gradient(170deg, #121c33, var(--bg, #1a2744));
+}
+
+.theme-card .bale-pay-slip {
+    border: 1px solid var(--line, #cdd6e1);
+    border-radius: 1.1rem;
+    padding-top: 3.4rem;
+    background-color: var(--surface, #f4f7fb);
+    background-image: linear-gradient(145deg, #ffffff 0%, var(--surface, #f4f7fb) 46%, #e7eef6 100%);
+    color: var(--ink, #10233d);
+    -webkit-text-fill-color: var(--ink, #10233d);
+    box-shadow: 0 22px 44px #0007;
+    overflow: hidden;
+}
+
+.theme-card .bale-pay-title,
+.theme-card .bale-pay-ref,
+.theme-card .bale-pay-copy,
+.theme-card .bale-pay-muted,
+.theme-card .bale-pay-test {
+    color: var(--ink, #10233d) !important;
+    -webkit-text-fill-color: var(--ink, #10233d) !important;
+}
+
+.theme-card .bale-pay-label {
+    color: var(--muted, #5a6e85) !important;
+    -webkit-text-fill-color: var(--muted, #5a6e85) !important;
+}
+
+.theme-card .bale-pay-amount {
+    color: var(--amount, #0f4c81) !important;
+    -webkit-text-fill-color: var(--amount, #0f4c81) !important;
+}
+
+.theme-card .bale-pay-error {
+    color: var(--danger, #c0392b) !important;
+    -webkit-text-fill-color: var(--danger, #c0392b) !important;
+}
+
+.theme-card .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: 1.1rem;
+    right: 1.2rem;
+    width: 2.6rem;
+    height: 1.9rem;
+    border-radius: 0.35rem;
+    background: linear-gradient(140deg, #f0d36a, var(--accent, #c9a227));
+    box-shadow: inset 0 0 0 1px #0003;
+}
+
+.theme-card .bale-pay-slip::after {
+    content: "";
+    position: absolute;
+    top: 1.35rem;
+    left: 1.2rem;
+    width: 3.6rem;
+    height: 1.4rem;
+    border-radius: 0.2rem;
+    background: repeating-linear-gradient(90deg, #10233d38 0 3px, transparent 3px 6px);
+}
+
+.theme-card .bale-pay-ref {
+    letter-spacing: 0.22em;
+    font-size: 1.25rem;
+}
+
+.theme-card .bale-pay-btn {
+    border-radius: 0.8rem;
+    color: var(--accent-ink, #1a1204);
+    -webkit-text-fill-color: var(--accent-ink, #1a1204);
+    background: linear-gradient(180deg, #e0be4a, var(--accent, #c9a227));
+}
+
+/* 23. نعنایی */
+.theme-mint {
+    background:
+        radial-gradient(600px 300px at 50% -80px, color-mix(in srgb, var(--accent) 25%, transparent), transparent 70%),
+        var(--bg);
+}
+
+.theme-mint .bale-pay-slip {
+    border: 0;
+    border-radius: 1.5rem 1.5rem 2.4rem 2.4rem;
+    box-shadow: 0 16px 36px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.theme-mint .bale-pay-amount {
+    color: var(--amount);
+    font-size: 2.1rem;
+}
+
+.theme-mint .bale-pay-btn {
+    border-radius: 999px;
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* ====================================================== تاریک و نئون */
+
+/* 24. بازار شب */
+.theme-neon {
+    background:
+        radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--amount) 28%, transparent), transparent 28%),
+        radial-gradient(circle at 80% 0, color-mix(in srgb, var(--accent) 24%, transparent), transparent 26%),
+        var(--bg);
+}
+
+.theme-neon .bale-pay-masthead h1 {
+    text-shadow: 0 0 16px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.theme-neon .bale-pay-slip {
+    border-radius: 1.1rem;
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--amount) 35%, transparent),
+        0 18px 50px #000a,
+        inset 0 0 40px color-mix(in srgb, var(--accent) 8%, transparent);
+    backdrop-filter: blur(8px);
+}
+
+.theme-neon .bale-pay-btn {
+    border-radius: 0.7rem;
+    box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.theme-neon .bale-pay-amount {
+    text-shadow: 0 0 18px color-mix(in srgb, var(--amount) 55%, transparent);
+}
+
+/* 25. مدار مبلغ */
+.theme-orbit {
+    background:
+        radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 28%),
+        var(--bg);
+}
+
+.theme-orbit .bale-pay-slip {
+    border-radius: 1.6rem;
+    text-align: center;
+    padding-top: 1.6rem;
+}
+
+.theme-orbit .bale-pay-amount {
+    width: 12.2rem;
+    height: 12.2rem;
+    margin: 0.4rem auto 1.2rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    border: 2px solid var(--accent);
+    box-shadow:
+        0 0 0 10px color-mix(in srgb, var(--accent) 12%, transparent),
+        0 0 0 18px color-mix(in srgb, var(--amount) 10%, transparent);
+}
+
+.theme-orbit .bale-pay-btn {
+    border-radius: 999px;
+}
+
+/* 26. سایبرپانک */
+.theme-cyber {
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--accent) 12%, transparent) 0 1px, transparent 1px 40px),
+        linear-gradient(0deg, color-mix(in srgb, var(--amount) 10%, transparent) 0 1px, transparent 1px 40px),
+        radial-gradient(700px 400px at 50% 100%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%),
+        var(--bg);
+    background-size: 40px 40px, 40px 40px, auto, auto;
+}
+
+.theme-cyber .bale-pay-masthead h1 {
+    text-shadow: 2px 0 0 color-mix(in srgb, var(--amount) 70%, transparent), -2px 0 0 color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.theme-cyber .bale-pay-slip {
+    clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+    border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.theme-cyber .bale-pay-label {
+    color: var(--amount);
+    letter-spacing: 0.12em;
+}
+
+.theme-cyber .bale-pay-amount {
+    color: var(--amount);
+    text-shadow: 0 0 20px color-mix(in srgb, var(--amount) 60%, transparent);
+}
+
+.theme-cyber .bale-pay-btn {
+    clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+    box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+/* 27. سینت‌ویو */
+.theme-synth {
+    background:
+        linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--accent) 30%, transparent) 62.4%, transparent 63%),
+        repeating-linear-gradient(180deg, transparent 0 22px, color-mix(in srgb, var(--accent) 16%, transparent) 22px 23px),
+        radial-gradient(circle at 50% 62%, var(--amount) 0 58px, transparent 60px),
+        linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 55%, #000));
+}
+
+.theme-synth .bale-pay-masthead h1 {
+    background: linear-gradient(180deg, var(--amount), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+}
+
+.theme-synth .bale-pay-slip {
+    border-radius: 0.9rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--amount) 30%, transparent), 0 20px 46px #000a;
+}
+
+.theme-synth .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-synth .bale-pay-btn {
+    border-radius: 0.6rem;
+    background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--amount)));
+    box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+/* 28. شفق قطبی */
+.theme-aurora {
+    background:
+        radial-gradient(600px 300px at 20% 0, color-mix(in srgb, var(--accent) 40%, transparent), transparent 60%),
+        radial-gradient(500px 260px at 78% 12%, color-mix(in srgb, var(--amount) 34%, transparent), transparent 62%),
+        radial-gradient(700px 320px at 50% 100%, color-mix(in srgb, var(--success) 20%, transparent), transparent 60%),
+        var(--bg);
+}
+
+.theme-aurora .bale-pay-slip {
+    border-radius: 1.3rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 44px #0007;
+}
+
+.theme-aurora .bale-pay-amount {
+    background: linear-gradient(90deg, var(--amount), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.theme-aurora .bale-pay-btn {
+    border-radius: 0.9rem;
+}
+
+/* 29. کهکشان */
+.theme-galaxy {
+    background:
+        radial-gradient(1.5px 1.5px at 14% 22%, #fff, transparent),
+        radial-gradient(1.2px 1.2px at 62% 14%, #fffc, transparent),
+        radial-gradient(1.6px 1.6px at 38% 62%, #fffb, transparent),
+        radial-gradient(1.3px 1.3px at 86% 48%, #fffa, transparent),
+        radial-gradient(1.4px 1.4px at 26% 88%, #fffb, transparent),
+        radial-gradient(600px 340px at 76% 10%, color-mix(in srgb, var(--accent) 40%, transparent), transparent 62%),
+        radial-gradient(520px 300px at 18% 82%, color-mix(in srgb, var(--amount) 26%, transparent), transparent 60%),
+        var(--bg);
+}
+
+.theme-galaxy .bale-pay-slip {
+    border-radius: 1.4rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+    box-shadow: 0 24px 50px #000b, inset 0 1px 0 #ffffff1a;
+}
+
+.theme-galaxy .bale-pay-amount {
+    color: var(--amount);
+    text-shadow: 0 0 22px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.theme-galaxy .bale-pay-btn {
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 50%, var(--amount)));
+}
+
+/* 30. اخگر */
+.theme-ember {
+    background:
+        radial-gradient(700px 300px at 50% 108%, color-mix(in srgb, var(--accent) 45%, transparent), transparent 62%),
+        radial-gradient(400px 200px at 18% 96%, color-mix(in srgb, var(--amount) 30%, transparent), transparent 60%),
+        var(--bg);
+}
+
+.theme-ember .bale-pay-slip {
+    border-radius: 0.9rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+    box-shadow: 0 18px 40px #000a, inset 0 -30px 40px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.theme-ember .bale-pay-amount {
+    color: var(--amount);
+    text-shadow: 0 0 20px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.theme-ember .bale-pay-btn {
+    border-radius: 0.7rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 85%, #fff), var(--accent));
+    box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+/* 31. نیمه‌شب */
+.theme-midnight {
+    background:
+        radial-gradient(700px 360px at 50% -10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 62%),
+        var(--bg);
+}
+
+.theme-midnight .bale-pay-slip {
+    border-radius: 1.3rem;
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 44px #0008, inset 0 1px 0 #ffffff12;
+}
+
+.theme-midnight .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-midnight .bale-pay-btn {
+    border-radius: 0.9rem;
+    box-shadow: 0 10px 26px color-mix(in srgb, var(--accent) 38%, transparent);
+}
+
+/* 32. هولوگرام */
+.theme-holo {
+    background:
+        conic-gradient(from 200deg at 50% 0, color-mix(in srgb, var(--accent) 25%, transparent), color-mix(in srgb, var(--amount) 25%, transparent), color-mix(in srgb, var(--accent) 25%, transparent)),
+        var(--bg);
+}
+
+.theme-holo .bale-pay-slip {
+    border-radius: 1.2rem;
+    border: 0;
+    box-shadow: 0 20px 44px #000a;
+}
+
+.theme-holo .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 1.35rem;
+    padding: 2px;
+    background: conic-gradient(from 0deg, var(--accent), var(--amount), var(--success), var(--accent));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.theme-holo .bale-pay-amount {
+    background: linear-gradient(90deg, var(--accent), var(--amount));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.theme-holo .bale-pay-btn {
+    border-radius: 0.9rem;
+}
+
+/* ======================================================= رترو و بازی */
+
+/* 33. ماتریکس */
+.theme-matrix {
+    background:
+        repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 10%, transparent) 0 1px, transparent 1px 14px),
+        radial-gradient(600px 400px at 50% 0, color-mix(in srgb, var(--accent) 18%, transparent), transparent 65%),
+        var(--bg);
+}
+
+.theme-matrix .bale-pay-masthead h1 {
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.theme-matrix .bale-pay-slip {
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+    border-radius: 0.2rem;
+    box-shadow: 0 0 0 1px #0008, 0 0 34px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.theme-matrix .bale-pay-ref,
+.theme-matrix .bale-pay-amount {
+    color: var(--amount);
+    letter-spacing: 0.14em;
+    text-shadow: 0 0 16px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.theme-matrix .bale-pay-btn {
+    border-radius: 0.2rem;
+    letter-spacing: 0.06em;
+    box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+/* 34. ترمینال کهربایی */
+.theme-terminal {
+    background:
+        repeating-linear-gradient(180deg, color-mix(in srgb, #000 45%, transparent) 0 1px, transparent 1px 4px),
+        radial-gradient(600px 400px at 50% 40%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+        var(--bg);
+}
+
+.theme-terminal .bale-pay-slip {
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+    border-radius: 0.35rem;
+    box-shadow: inset 0 0 40px color-mix(in srgb, var(--accent) 10%, transparent), 0 0 30px #000a;
+}
+
+.theme-terminal .bale-pay-label::before {
+    content: "> ";
+    color: var(--accent);
+}
+
+.theme-terminal .bale-pay-ref::after {
+    content: "_";
+    color: var(--accent);
+}
+
+.theme-terminal .bale-pay-amount {
+    color: var(--amount);
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 18px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.theme-terminal .bale-pay-btn {
+    border-radius: 0.25rem;
+    border: 1px solid color-mix(in srgb, #000 30%, var(--accent));
+}
+
+/* 35. آرکید */
+.theme-arcade {
+    background:
+        repeating-conic-gradient(color-mix(in srgb, var(--bg) 80%, #000) 0 25%, var(--bg) 0 50%),
+        var(--bg);
+    background-size: 28px 28px, auto;
+}
+
+.theme-arcade .bale-pay-masthead h1 {
+    color: var(--accent);
+    text-shadow: 3px 3px 0 var(--amount), 6px 6px 0 #0006;
+    letter-spacing: 0.04em;
+}
+
+.theme-arcade .bale-pay-slip {
+    border: 0;
+    border-radius: 0;
+    box-shadow:
+        0 -6px 0 0 var(--accent),
+        0 6px 0 0 var(--accent),
+        -6px 0 0 0 var(--accent),
+        6px 0 0 0 var(--accent),
+        0 0 0 12px var(--line);
+    margin: 0.9rem 0.4rem;
+}
+
+.theme-arcade .bale-pay-amount {
+    color: var(--amount);
+    letter-spacing: 0.08em;
+    text-shadow: 2px 2px 0 #0007;
+}
+
+.theme-arcade .bale-pay-btn {
+    border-radius: 0;
+    box-shadow: 0 6px 0 color-mix(in srgb, var(--accent) 55%, #000);
+}
+
+.theme-arcade .bale-pay-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 color-mix(in srgb, var(--accent) 55%, #000);
+}
+
+/* 36. نوار ویدیو */
+.theme-vhs {
+    background:
+        repeating-linear-gradient(180deg, transparent 0 3px, color-mix(in srgb, #fff 5%, transparent) 3px 4px),
+        radial-gradient(800px 400px at 50% 0, color-mix(in srgb, var(--amount) 16%, transparent), transparent 60%),
+        var(--bg);
+}
+
+.theme-vhs .bale-pay-masthead h1 {
+    text-shadow: -2px 0 color-mix(in srgb, var(--accent) 85%, transparent), 2px 0 color-mix(in srgb, var(--amount) 85%, transparent);
+}
+
+.theme-vhs .bale-pay-kicker {
+    letter-spacing: 0.2em;
+}
+
+.theme-vhs .bale-pay-slip {
+    border: 1px solid var(--line);
+    border-radius: 0.25rem;
+    box-shadow: 0 18px 36px #000a;
+    overflow: hidden;
+}
+
+.theme-vhs .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: 22%;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--amount) 45%, transparent), transparent);
+    opacity: 0.7;
+}
+
+.theme-vhs .bale-pay-amount {
+    color: var(--amount);
+    letter-spacing: 0.06em;
+}
+
+.theme-vhs .bale-pay-btn {
+    border-radius: 0.25rem;
+}
+
+/* 37. کمیک */
+.theme-comic {
+    background:
+        radial-gradient(circle, color-mix(in srgb, var(--danger) 30%, transparent) 0 3px, transparent 4px) 0 0 / 18px 18px,
+        var(--bg);
+}
+
+.theme-comic .bale-pay-masthead h1 {
+    color: var(--ink);
+    text-shadow: 3px 3px 0 var(--surface), 5px 5px 0 var(--ink);
+}
+
+.theme-comic .bale-pay-slip {
+    border: 4px solid var(--ink);
+    border-radius: 1rem;
+    box-shadow: 7px 7px 0 var(--ink);
+}
+
+.theme-comic .bale-pay-title {
+    color: var(--danger);
+}
+
+.theme-comic .bale-pay-amount {
+    color: var(--amount);
+    -webkit-text-stroke: 1px var(--ink);
+    font-size: 2.35rem;
+}
+
+.theme-comic .bale-pay-btn {
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* 38. تمبر پستی */
+.theme-stamp {
+    background: var(--bg);
+}
+
+.theme-stamp .bale-pay-slip {
+    border: 0;
+    margin: 0.6rem;
+    padding: 1.6rem 1.4rem;
+    outline: 1px solid color-mix(in srgb, var(--line) 90%, #000);
+    outline-offset: -0.65rem;
+    box-shadow: 0 14px 26px #0004;
+}
+
+/* punched stamp edge: bg-colored circles biting into the four sides */
+.theme-stamp .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 8px 8px, var(--bg) 6px, transparent 6.5px) 0 0 / 16px 16px repeat-x,
+        radial-gradient(circle at 8px 8px, var(--bg) 6px, transparent 6.5px) 0 100% / 16px 16px repeat-x,
+        radial-gradient(circle at 8px 8px, var(--bg) 6px, transparent 6.5px) 0 0 / 16px 16px repeat-y,
+        radial-gradient(circle at 8px 8px, var(--bg) 6px, transparent 6.5px) 100% 0 / 16px 16px repeat-y;
+}
+
+.theme-stamp .bale-pay-slip::after {
+    content: "";
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    width: 4.2rem;
+    height: 4.2rem;
+    border: 2px solid color-mix(in srgb, var(--amount) 45%, transparent);
+    border-radius: 50%;
+    transform: rotate(-14deg);
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+.theme-stamp .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-stamp .bale-pay-btn {
+    border-radius: 0.3rem;
+}
+
+/* ============================================================== طبیعت */
+
+/* 39. جنگل */
+.theme-forest {
+    background:
+        conic-gradient(from 180deg at 20% 100%, transparent 0 42%, color-mix(in srgb, #000 30%, var(--bg)) 0 58%, transparent 0),
+        conic-gradient(from 180deg at 52% 100%, transparent 0 44%, color-mix(in srgb, #000 18%, var(--bg)) 0 56%, transparent 0),
+        conic-gradient(from 180deg at 84% 100%, transparent 0 43%, color-mix(in srgb, #000 26%, var(--bg)) 0 57%, transparent 0),
+        linear-gradient(180deg, color-mix(in srgb, var(--accent) 35%, var(--bg)), var(--bg));
+}
+
+.theme-forest .bale-pay-slip {
+    border: 0;
+    border-radius: 1.4rem 1.4rem 0.5rem 0.5rem;
+    box-shadow: 0 20px 40px #0006;
+}
+
+.theme-forest .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-forest .bale-pay-btn {
+    border-radius: 0.9rem;
+}
+
+/* 40. اقیانوس */
+.theme-ocean {
+    background:
+        radial-gradient(700px 320px at 50% 100%, color-mix(in srgb, var(--accent) 40%, transparent), transparent 62%),
+        linear-gradient(180deg, color-mix(in srgb, var(--bg) 70%, #000), var(--bg));
+}
+
+.theme-ocean .bale-pay-slip {
+    border: 0;
+    border-radius: 1.2rem;
+    padding-top: 2.1rem;
+    overflow: hidden;
+    box-shadow: 0 18px 40px #0005;
+}
+
+.theme-ocean .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10%;
+    right: -10%;
+    height: 1.5rem;
+    background:
+        radial-gradient(circle at 12px 0, transparent 12px, color-mix(in srgb, var(--accent) 22%, var(--surface)) 13px) 0 0 / 24px 24px repeat-x;
+}
+
+.theme-ocean .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-ocean .bale-pay-btn {
+    border-radius: 999px;
+}
+
+/* 41. کویر */
+.theme-desert {
+    background:
+        radial-gradient(circle at 78% 12%, color-mix(in srgb, var(--accent) 60%, transparent) 0 34px, transparent 36px),
+        radial-gradient(120% 60% at 20% 108%, color-mix(in srgb, #000 18%, var(--bg)) 0 60%, transparent 62%),
+        radial-gradient(120% 60% at 90% 118%, color-mix(in srgb, #000 10%, var(--bg)) 0 60%, transparent 62%),
+        linear-gradient(180deg, color-mix(in srgb, #fff 30%, var(--bg)), var(--bg));
+}
+
+.theme-desert .bale-pay-slip {
+    border: 1px solid var(--line);
+    border-radius: 1.6rem;
+    box-shadow: 0 18px 36px color-mix(in srgb, #000 18%, transparent);
+}
+
+.theme-desert .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-desert .bale-pay-btn {
+    border-radius: 1rem;
+}
+
+/* 42. شکوفه */
+.theme-sakura {
+    background:
+        radial-gradient(circle at 16% 20%, color-mix(in srgb, var(--accent) 30%, transparent) 0 5px, transparent 6px),
+        radial-gradient(circle at 74% 10%, color-mix(in srgb, var(--accent) 24%, transparent) 0 4px, transparent 5px),
+        radial-gradient(circle at 86% 64%, color-mix(in srgb, var(--accent) 22%, transparent) 0 6px, transparent 7px),
+        radial-gradient(circle at 30% 84%, color-mix(in srgb, var(--accent) 20%, transparent) 0 5px, transparent 6px),
+        var(--bg);
+}
+
+.theme-sakura .bale-pay-slip {
+    border: 0;
+    border-radius: 2rem 0.6rem 2rem 0.6rem;
+    box-shadow: 0 18px 38px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.theme-sakura .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-sakura .bale-pay-btn {
+    border-radius: 999px;
+}
+
+/* 43. غروب */
+.theme-sunset {
+    background:
+        radial-gradient(circle at 50% 78%, color-mix(in srgb, var(--accent) 85%, #fff) 0 70px, transparent 72px),
+        linear-gradient(180deg, var(--bg) 0%, color-mix(in srgb, var(--accent) 45%, var(--bg)) 58%, color-mix(in srgb, var(--amount) 55%, var(--bg)) 100%);
+}
+
+.theme-sunset .bale-pay-masthead h1 {
+    color: #fff;
+    text-shadow: 0 2px 18px #0006;
+}
+
+.theme-sunset .bale-pay-kicker {
+    color: #ffffffcc;
+}
+
+.theme-sunset .bale-pay-slip {
+    border: 0;
+    border-radius: 1.5rem;
+    box-shadow: 0 22px 44px #0004;
+}
+
+.theme-sunset .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-sunset .bale-pay-btn {
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 50%, var(--amount)));
+}
+
+/* ======================================================== لوکس و فلز */
+
+/* 44. گاوصندوق */
+.theme-vault {
+    background:
+        radial-gradient(circle at 50% 0, color-mix(in srgb, var(--accent) 18%, transparent), transparent 42%),
+        linear-gradient(180deg, #101318, var(--bg));
+}
+
+.theme-vault .bale-pay-slip {
+    border-radius: 10px;
+    border-width: 2px;
+    box-shadow:
+        inset 0 1px 0 color-mix(in srgb, #fff 16%, transparent),
+        0 0 0 6px color-mix(in srgb, var(--surface) 70%, #000),
+        0 22px 40px #0008;
+}
+
+.theme-vault .bale-pay-slip::before,
+.theme-vault .bale-pay-slip::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ddd, #666 55%, #222);
+}
+
+.theme-vault .bale-pay-slip::before { right: 10px; box-shadow: 0 calc(100% - 28px) 0 #8a8a8a; }
+.theme-vault .bale-pay-slip::after { left: 10px; box-shadow: 0 calc(100% - 28px) 0 #8a8a8a; }
+
+.theme-vault .bale-pay-amount {
+    background: #0c0e12;
+    border: 1px solid var(--line);
+    padding: 0.55rem 0.7rem;
+    text-align: center;
+    letter-spacing: 0.04em;
+    box-shadow: inset 0 8px 16px #0008;
+}
+
+/* 45. ابریشم */
+.theme-silk {
+    background:
+        radial-gradient(80% 50% at 10% 0, color-mix(in srgb, var(--accent) 22%, transparent), transparent 50%),
+        radial-gradient(70% 40% at 100% 100%, color-mix(in srgb, var(--amount) 18%, transparent), transparent 46%),
+        var(--bg);
+}
+
+.theme-silk .bale-pay-slip {
+    border: 0;
+    border-radius: 2rem;
+    padding: 1.6rem 1.35rem;
+    box-shadow: 0 24px 50px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.theme-silk .bale-pay-btn {
+    border-radius: 999px;
+}
+
+.theme-silk .bale-pay-amount {
+    font-size: 2.15rem;
+}
+
+/* 46. شمش طلا */
+.theme-gold {
+    background:
+        radial-gradient(700px 360px at 50% -40px, color-mix(in srgb, var(--accent) 26%, transparent), transparent 66%),
+        var(--bg);
+}
+
+.theme-gold .bale-pay-masthead h1 {
+    background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 60%, #fff), var(--accent), color-mix(in srgb, var(--accent) 60%, #fff));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.theme-gold .bale-pay-slip {
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+    border-radius: 0.5rem;
+    background: linear-gradient(150deg, color-mix(in srgb, var(--surface) 88%, #fff2), var(--surface) 45%, color-mix(in srgb, var(--surface) 70%, #000));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent), 0 22px 44px #000a;
+}
+
+.theme-gold .bale-pay-amount {
+    color: var(--amount);
+    letter-spacing: 0.03em;
+}
+
+.theme-gold .bale-pay-btn {
+    border-radius: 0.4rem;
+    background: linear-gradient(
+        100deg,
+        color-mix(in srgb, var(--accent) 78%, #000) 0%,
+        var(--accent) 34%,
+        color-mix(in srgb, var(--accent) 45%, #fff) 50%,
+        var(--accent) 66%,
+        color-mix(in srgb, var(--accent) 78%, #000) 100%
+    );
+    box-shadow: inset 0 1px 0 #fff6, 0 10px 22px #0007;
+}
+
+/* 47. مرمر */
+.theme-marble {
+    background:
+        repeating-linear-gradient(115deg, transparent 0 26px, color-mix(in srgb, var(--amount) 16%, transparent) 26px 27px, transparent 27px 44px),
+        repeating-linear-gradient(72deg, transparent 0 40px, color-mix(in srgb, #000 8%, transparent) 40px 41px, transparent 41px 90px),
+        var(--bg);
+}
+
+.theme-marble .bale-pay-slip {
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    background-image:
+        repeating-linear-gradient(108deg, transparent 0 30px, color-mix(in srgb, var(--amount) 14%, transparent) 30px 31px, transparent 31px 62px);
+    box-shadow: 0 16px 34px #00000018;
+}
+
+.theme-marble .bale-pay-amount {
+    color: var(--amount);
+    border-bottom: 1px solid color-mix(in srgb, var(--amount) 45%, transparent);
+    padding-bottom: 0.35rem;
+}
+
+.theme-marble .bale-pay-btn {
+    border-radius: 0.4rem;
+}
+
+/* 48. مخمل */
+.theme-velvet {
+    background:
+        radial-gradient(600px 320px at 50% 0, color-mix(in srgb, var(--accent) 18%, transparent), transparent 62%),
+        repeating-linear-gradient(90deg, color-mix(in srgb, #000 22%, transparent) 0 2px, transparent 2px 16px),
+        linear-gradient(180deg, color-mix(in srgb, var(--bg) 65%, #000), var(--bg));
+}
+
+.theme-velvet .bale-pay-slip {
+    border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+    border-radius: 0.8rem;
+    box-shadow:
+        inset 0 0 60px color-mix(in srgb, var(--accent) 8%, transparent),
+        0 0 0 4px color-mix(in srgb, var(--bg) 60%, #000),
+        0 24px 48px #000a;
+}
+
+.theme-velvet .bale-pay-title,
+.theme-velvet .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-velvet .bale-pay-btn {
+    border-radius: 0.6rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 65%, #fff), var(--accent));
+}
+
+/* 49. مس و زنگار */
+.theme-copper {
+    background:
+        radial-gradient(280px 200px at 20% 18%, color-mix(in srgb, var(--success) 45%, transparent), transparent 70%),
+        radial-gradient(320px 220px at 84% 72%, color-mix(in srgb, var(--accent) 40%, transparent), transparent 70%),
+        var(--bg);
+}
+
+.theme-copper .bale-pay-slip {
+    border: 2px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+    border-radius: 0.7rem;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--success) 35%, var(--bg)), 0 20px 40px #0006;
+}
+
+.theme-copper .bale-pay-amount {
+    color: var(--amount);
+}
+
+.theme-copper .bale-pay-btn {
+    border-radius: 0.5rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 70%, #fff), var(--accent) 60%, color-mix(in srgb, var(--accent) 75%, #000));
+}
+
+/* 50. کربن */
+.theme-carbon {
+    background:
+        repeating-linear-gradient(45deg, color-mix(in srgb, #fff 4%, transparent) 0 3px, transparent 3px 6px),
+        repeating-linear-gradient(-45deg, color-mix(in srgb, #fff 4%, transparent) 0 3px, transparent 3px 6px),
+        var(--bg);
+}
+
+.theme-carbon .bale-pay-slip {
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    background-image:
+        repeating-linear-gradient(45deg, color-mix(in srgb, #fff 3%, transparent) 0 4px, transparent 4px 8px),
+        repeating-linear-gradient(-45deg, color-mix(in srgb, #fff 3%, transparent) 0 4px, transparent 4px 8px);
+    box-shadow: 0 18px 38px #000a;
+    overflow: hidden;
+}
+
+.theme-carbon .bale-pay-slip::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 5px;
+    background: var(--accent);
+}
+
+.theme-carbon .bale-pay-amount {
+    color: var(--amount);
+    letter-spacing: 0.02em;
+}
+
+.theme-carbon .bale-pay-btn {
+    border-radius: 0.45rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 80%, #fff), var(--accent));
+}
+
+/* ==================================================== حرکت‌های ظریف */
+
+@media (prefers-reduced-motion: no-preference) {
+    .theme-ember .bale-pay-slip {
+        animation: bale-pay-rise 0.35s ease-out, bale-pay-ember 4.5s ease-in-out 0.4s infinite;
+    }
+
+    .theme-terminal .bale-pay-ref::after,
+    .theme-matrix .bale-pay-ref::after {
+        animation: bale-pay-blink 1.1s steps(1) infinite;
+    }
+
+    .theme-gold .bale-pay-btn {
+        background-size: 220% 100%;
+        animation: bale-pay-sheen 7s linear infinite;
+    }
+
+    .theme-holo .bale-pay-slip::before {
+        animation: bale-pay-hue 9s linear infinite;
+    }
+
+    .theme-aurora {
+        background-size: 150% 150%, 150% 150%, 150% 150%;
+        animation: bale-pay-drift 20s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes bale-pay-ember {
+    0%, 100% { box-shadow: 0 18px 40px #000a, inset 0 -30px 40px color-mix(in srgb, var(--accent) 10%, transparent); }
+    50% { box-shadow: 0 18px 40px #000a, inset 0 -34px 46px color-mix(in srgb, var(--accent) 20%, transparent); }
+}
+
+@keyframes bale-pay-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes bale-pay-sheen {
+    from { background-position: 0% 50%; }
+    to { background-position: 200% 50%; }
+}
+
+@keyframes bale-pay-drift {
+    from { background-position: 0% 0%, 100% 0%, 50% 100%; }
+    to { background-position: 25% 12%, 75% 22%, 40% 88%; }
+}
+
+@keyframes bale-pay-hue {
+    to { filter: hue-rotate(360deg); }
+}
