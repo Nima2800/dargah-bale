@@ -1,108 +1,626 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>درگاه بله</title>
-    <link rel="stylesheet" href="css/info.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بله گیت | درگاه کیف پول بله برای ووکامرس</title>
+    <meta name="description" content="بله گیت: دریافت وجه فروشگاه ووکامرس از کیف پول بله. مبلغ فقط سمت سرور قفل می‌شود و ظاهر مینی‌اپ را از میان ۵۰ مدل آماده انتخاب می‌کنید.">
+
+    <link href="Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="all.min.css">
+
+    <style>
+        :root {
+            --primary: #0f6e5c;
+            --primary-dark: #0a5547;
+            --primary-soft: #e8f5f1;
+            --white: #ffffff;
+            --bg: #ffffff;
+            --bg-soft: #f4faf8;
+            --card-bg: #ffffff;
+            --text: #111111;
+            --text-muted: #444444;
+            --border: rgba(15, 110, 92, 0.22);
+            --bale: #00a884;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(180deg, #eef8f5 0%, #ffffff 70%);
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            opacity: 0.1;
+            filter: blur(90px);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .badge {
+            background: rgba(15, 110, 92, 0.1);
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: 1px solid rgba(15, 110, 92, 0.28);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 168, 132, 0.35);
+            background: var(--white);
+            color: var(--bale);
+            box-shadow: 0 4px 14px rgba(0, 168, 132, 0.12);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65em;
+        }
+
+        h1 .h1-title {
+            display: block;
+        }
+
+        h1 .h1-logo {
+            display: block;
+            height: auto;
+            max-width: min(320px, 78vw);
+            width: auto;
+            margin: 0 auto;
+        }
+
+        h1 .h1-sub {
+            color: var(--primary);
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 760px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 10px 30px -10px rgba(15, 110, 92, 0.55);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            background: var(--white);
+            color: var(--primary-dark);
+            margin-right: 15px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-dark);
+            background: rgba(15, 110, 92, 0.06);
+        }
+
+        .video-box {
+            margin-top: 60px;
+            border-radius: 20px;
+            padding: 10px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px -12px rgba(15, 110, 92, 0.18);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .section-title p { color: var(--text-muted); }
+
+        section { padding: 80px 0; background: var(--bg); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 24px rgba(15, 110, 92, 0.06);
+            transition: 0.4s ease;
+            color: var(--text);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 16px 36px rgba(15, 110, 92, 0.14);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(15, 110, 92, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .card ul { margin-top: 15px; }
+
+        .card ul li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card ul li i { color: var(--primary); font-size: 0.8rem; }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .step-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px;
+            position: relative;
+        }
+
+        .step-num {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .security-section {
+            background: var(--bg-soft);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .highlight-box {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 50px;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 32px rgba(15, 110, 92, 0.08);
+            color: var(--text);
+        }
+
+        .compat-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .compat-row span {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .notif-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .notif-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            color: var(--text);
+            transition: 0.3s;
+        }
+
+        .notif-item:hover {
+            background: rgba(15, 110, 92, 0.06);
+            border-color: var(--primary);
+        }
+
+        .notif-item i {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--primary);
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 50px;
+            color: #ffffff;
+        }
+
+        footer h2, footer p, footer strong { color: #ffffff; }
+        footer p { margin-top: 20px; opacity: 0.95; }
+
+        footer .btn-primary {
+            background: #ffffff;
+            color: var(--primary-dark);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+        }
+
+        footer .btn-primary:hover {
+            background: #f4faf8;
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero-desc { font-size: 1rem; }
+            .btn { width: 100%; justify-content: center; margin-bottom: 10px; margin-right: 0; }
+            .highlight-box { padding: 30px; }
+        }
+    </style>
 </head>
 <body>
-    <nav class="ticks" aria-label="بخش‌ها"></nav>
-    <p class="count" aria-live="polite"><span data-now>1</span> / 11</p>
 
-    <main class="deck" id="deck">
-        <section class="panel" style="--from: 0; --to: 420; --bg: #121818"></section>
-        <section class="panel" style="--from: 420; --to: 1014; --bg: #F6F0E4"></section>
-        <section class="panel" style="--from: 1014; --to: 1578; --bg: #12A896"></section>
-        <section class="panel" style="--from: 1578; --to: 2040; --bg: #E4A83C"></section>
-        <section class="panel" style="--from: 2040; --to: 3126; --bg: #EAE4DE"></section>
-        <section class="panel" style="--from: 3126; --to: 3558; --bg: #F6D8D8"></section>
-        <section class="panel" style="--from: 3558; --to: 4218; --bg: #CCEAD8"></section>
-        <section class="panel" style="--from: 4218; --to: 4458; --bg: #F0E4D2"></section>
-        <section class="panel" style="--from: 4458; --to: 4992; --bg: #121818"></section>
-        <section class="panel" style="--from: 4992; --to: 5724; --bg: #30C696"></section>
-        <section class="panel" style="--from: 5724; --to: 6114; --bg: #F3DED6"></section>
-    </main>
+    <header>
+        <div class="container hero-content">
+            <span class="badge"><i class="fas fa-wallet"></i> درگاه پرداخت ووکامرس</span>
+            <span class="platform-badge"><i class="fas fa-comment-dots"></i> کیف پول بله</span>
+            <h1><img class="h1-logo" src="logo.png" alt="بله گیت"><span class="h1-sub">ظاهر مینی‌اپ مال فروشگاه شماست</span></h1>
+            <p class="hero-desc">
+                با افزونه <strong>بله گیت</strong> مشتری بعد از ثبت سفارش در ووکامرس، مستقیم وارد مینی‌اپ بله می‌شود و با کیف پول پرداخت می‌کند.
+                مبلغ فقط سمت سرور قفل می‌شود، سفارش فقط بعد از تأیید بله پرداخت‌شده می‌شود، و صفحه پرداخت را از میان
+                <strong>۵۰ مدل آماده</strong> انتخاب می‌کنید.
+            </p>
 
-    <script>
-        (function () {
-            const deck = document.getElementById("deck");
-            const panels = Array.from(deck.querySelectorAll(".panel"));
-            const ticks = document.querySelector(".ticks");
-            const now = document.querySelector("[data-now]");
-            const src = "images/info.png";
-            let index = 0;
-            let lock = false;
+            <div class="hero-btns">
+                <a href="#buy" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i> خرید از راست‌چین
+                </a>
+                <a href="#features" class="btn btn-outline">
+                    <i class="fas fa-list-ul"></i> مشاهده امکانات
+                </a>
+            </div>
 
-            panels.forEach(function (panel, i) {
-                const frame = document.createElement("div");
-                frame.className = "frame";
-                const img = document.createElement("img");
-                img.src = src;
-                img.alt = "درگاه بله";
-                img.width = 960;
-                img.height = 6114;
-                frame.appendChild(img);
-                panel.appendChild(frame);
+            <div class="video-box">
+                <div class="video-wrapper">
+                    <video controls poster="" preload="metadata">
+                        <source src="demo.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </header>
 
-                const tick = document.createElement("button");
-                tick.type = "button";
-                tick.setAttribute("aria-label", "بخش " + (i + 1));
-                tick.addEventListener("click", function () { go(i); });
-                ticks.appendChild(tick);
-            });
+    <section id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>امکانات بله گیت</h2>
+                <p>درگاهی کامل برای فروش با کیف پول بله، نه یک اسکریپت آزمایشی.</p>
+            </div>
 
-            function go(i) {
-                index = Math.max(0, Math.min(panels.length - 1, i));
-                panels[index].scrollIntoView({ behavior: "smooth", block: "start" });
-                paint();
-            }
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>مینی‌اپ بله</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> پرداخت داخل اپ بله بدون خروج از تجربه خرید</li>
+                        <li><i class="fas fa-check"></i> باز شدن خودکار کیف پول بعد از صدور فاکتور</li>
+                        <li><i class="fas fa-check"></i> صفحه میان‌بر مرورگر برای موبایل و دسکتاپ</li>
+                    </ul>
+                </div>
 
-            function paint() {
-                ticks.querySelectorAll("button").forEach(function (btn, i) {
-                    btn.classList.toggle("is-on", i === index);
-                });
-                now.textContent = String(index + 1);
-            }
+                <div class="card" style="border-color: rgba(15, 110, 92, 0.4);">
+                    <div class="card-icon"><i class="fas fa-palette"></i></div>
+                    <h3>۵۰ مدل ظاهر</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> هفت خانواده: ایرانی، کاغذ، مدرن، نئون، رترو، طبیعت، لوکس</li>
+                        <li><i class="fas fa-check"></i> تغییر رنگ‌ها از پیشخوان وردپرس</li>
+                        <li><i class="fas fa-check"></i> ظاهر مینی‌اپ هماهنگ با برند فروشگاه</li>
+                    </ul>
+                </div>
 
-            const observer = new IntersectionObserver(
-                function (entries) {
-                    entries.forEach(function (entry) {
-                        if (!entry.isIntersecting) return;
-                        index = panels.indexOf(entry.target);
-                        paint();
-                    });
-                },
-                { root: deck, threshold: 0.55 }
-            );
-            panels.forEach(function (panel) { observer.observe(panel); });
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-store"></i></div>
+                    <h3>یکپارچه با ووکامرس</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> درگاه پرداخت در تسویه کلاسیک و Checkout Blocks</li>
+                        <li><i class="fas fa-check"></i> سازگار با HPOS (جدول سفارش سفارشی)</li>
+                        <li><i class="fas fa-check"></i> پشتیبانی از قیمت تومان و ریال</li>
+                    </ul>
+                </div>
 
-            deck.addEventListener(
-                "wheel",
-                function (e) {
-                    if (Math.abs(e.deltaY) < 8) return;
-                    e.preventDefault();
-                    if (lock) return;
-                    lock = true;
-                    go(index + (e.deltaY > 0 ? 1 : -1));
-                    setTimeout(function () { lock = false; }, 640);
-                },
-                { passive: false }
-            );
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-lock"></i></div>
+                    <h3>امنیت سمت سرور</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> مبلغ فاکتور از جمع سفارش ووکامرس ساخته می‌شود</li>
+                        <li><i class="fas fa-check"></i> اعتبارسنجی initData مینی‌اپ با HMAC</li>
+                        <li><i class="fas fa-check"></i> جلوگیری از پرداخت تکراری یک سفارش</li>
+                    </ul>
+                </div>
 
-            document.addEventListener("keydown", function (e) {
-                if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
-                    e.preventDefault();
-                    go(index + 1);
-                }
-                if (e.key === "ArrowUp" || e.key === "PageUp") {
-                    e.preventDefault();
-                    go(index - 1);
-                }
-            });
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>وب‌هوک و تأیید خودکار</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> ثبت وب‌هوک بله از پیشخوان</li>
+                        <li><i class="fas fa-check"></i> تکمیل سفارش فقط با successful_payment یا استعلام PAID</li>
+                        <li><i class="fas fa-check"></i> پیام تأیید پرداخت برای مشتری در بله</li>
+                    </ul>
+                </div>
 
-            paint();
-        })();
-    </script>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-flask"></i></div>
+                    <h3>حالت آزمایشی و عملیاتی</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> تست بدون جابه‌جایی پول واقعی</li>
+                        <li><i class="fas fa-check"></i> سوییچ به حالت عملیاتی با توکن کیف پول BotFather</li>
+                        <li><i class="fas fa-check"></i> لاگ اشکال‌زدایی در گزارش‌های ووکامرس</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding-top: 0; background: var(--bg-soft);">
+        <div class="container">
+            <div class="section-title">
+                <h2>مسیر پرداخت مشتری</h2>
+                <p>چهار قدم ساده؛ مبلغ دست مشتری نیست.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">۱</div>
+                    <h3>تسویه ووکامرس</h3>
+                    <p>مشتری «بله گیت» را می‌زند. سفارش pending می‌شود و یک توکن تصادفی با انقضا ساخته می‌شود.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">۲</div>
+                    <h3>ورود به بله</h3>
+                    <p>لینک <span dir="ltr">ble.ir</span> بازو را با همان توکن باز می‌کند. مینی‌اپ باید روی HTTPS ثبت شده باشد.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">۳</div>
+                    <h3>فاکتور سرور</h3>
+                    <p>مینی‌اپ فاکتور را از سرور می‌گیرد و کیف پول بله را باز می‌کند. کلاینت مبلغ را تعیین نمی‌کند.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">۴</div>
+                    <h3>تأیید پرداخت</h3>
+                    <p>فقط <span dir="ltr">successful_payment</span> یا استعلام PAID سفارش را پرداخت‌شده می‌کند.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="security-section">
+        <div class="container">
+            <div class="highlight-box">
+                <span class="badge" style="background: rgba(15, 110, 92, 0.12); color: var(--primary); border-color: var(--primary);">برای فروشنده ایرانی</span>
+                <h2 style="font-size: 2.2rem; margin-top: 15px; margin-bottom: 20px;">درگاه آماده فروش، نه یک اسکریپت آزمایشی</h2>
+                <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 24px;">
+                    از پیشخوان وردپرس تم را عوض می‌کنید، وب‌هوک را ثبت می‌کنید، و با حالت آزمایشی بدون پول واقعی تست می‌کنید.
+                    واحد API بله ریال است؛ اگر فروشگاه به تومان قیمت می‌دهد، تبدیل فقط سمت سرور انجام می‌شود.
+                </p>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 14px;"><i class="fas fa-shield-alt" style="color: var(--primary); margin-left: 10px;"></i> <strong>مبلغ قفل‌شده:</strong> دستکاری صفحه مینی‌اپ سفارش را ارزان‌تر نمی‌کند.</li>
+                    <li style="margin-bottom: 14px;"><i class="fas fa-user-shield" style="color: var(--primary); margin-left: 10px;"></i> <strong>نشست بله:</strong> initData مینی‌اپ با HMAC-SHA-256 سنجیده می‌شود.</li>
+                    <li style="margin-bottom: 14px;"><i class="fas fa-redo" style="color: var(--primary); margin-left: 10px;"></i> <strong>ضد پرداخت تکراری:</strong> قفل وضعیت در دیتابیس جلوی دوبار complete شدن را می‌گیرد.</li>
+                    <li><i class="fas fa-clock" style="color: var(--primary); margin-left: 10px;"></i> <strong>توکن پرداخت:</strong> هر لینک ۴۰ دقیقه اعتبار دارد و قابل تلاش مجدد است.</li>
+                </ul>
+                <div class="compat-row">
+                    <span>WordPress 6+</span>
+                    <span>WooCommerce 7–9.9</span>
+                    <span>PHP 8.1–8.2</span>
+                    <span>HPOS</span>
+                    <span>Checkout Blocks</span>
+                    <span>IRR / تومان</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>آنچه در پیشخوان دارید</h2>
+                <p>همه تنظیمات از داخل وردپرس، بدون کدنویسی.</p>
+            </div>
+
+            <div class="notif-grid">
+                <div class="notif-item"><i class="fas fa-robot"></i>تنظیم بازو و توکن</div>
+                <div class="notif-item"><i class="fas fa-link"></i>ثبت وب‌هوک</div>
+                <div class="notif-item"><i class="fas fa-paint-brush"></i>۵۰ مدل مینی‌اپ</div>
+                <div class="notif-item"><i class="fas fa-sliders-h"></i>حالت آزمایشی / عملیاتی</div>
+                <div class="notif-item"><i class="fas fa-money-bill-wave"></i>تومان یا ریال</div>
+                <div class="notif-item"><i class="fas fa-clipboard-check"></i>وضعیت سفارش پس از پرداخت</div>
+                <div class="notif-item"><i class="fas fa-file-alt"></i>لاگ اشکال‌زدایی</div>
+                <div class="notif-item"><i class="fas fa-globe"></i>آدرس مینی‌اپ برای BotFather</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" style="background: var(--bg-soft);">
+        <div class="container">
+            <div class="section-title">
+                <h2>سوالات متداول</h2>
+                <p>پرسش‌هایی که فروشنده‌ها قبل از خرید می‌پرسند</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+
+                <div class="card" style="padding: 25px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;"><i class="fas fa-mobile-alt"></i> مینی‌اپ همان درگاه است؟</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">بله. مشتری از تسویه ووکامرس وارد اپ بله می‌شود و همان‌جا با کیف پول پرداخت می‌کند. مدل‌های ظاهری همان صفحه پرداخت داخل بله هستند.</p>
+                </div>
+
+                <div class="card" style="padding: 25px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;"><i class="fas fa-server"></i> روی لوکال‌هاست کار می‌کند؟</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">خیر. بله مینی‌اپ و وب‌هوک را فقط روی HTTPS می‌پذیرد. برای تست باید دامنه معتبر و SSL داشته باشید.</p>
+                </div>
+
+                <div class="card" style="padding: 25px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;"><i class="fas fa-coins"></i> قیمت فروشگاه تومان است یا ریال؟</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">بله مبلغ را به ریال می‌گیرد. در تنظیمات مشخص می‌کنید مبالغ ووکامرس تومان است یا ریال؛ تبدیل یک‌به‌ده فقط سمت سرور انجام می‌شود.</p>
+                </div>
+
+                <div class="card" style="padding: 25px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;"><i class="fas fa-cubes"></i> با تسویه بلوکی سازگار است؟</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">بله. هم تسویه کلاسیک و هم Checkout Blocks، به‌علاوه جدول سفارش سفارشی (HPOS).</p>
+                </div>
+
+                <div class="card" style="padding: 25px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;"><i class="fas fa-tools"></i> راه‌اندازی چقدر طول می‌کشد؟</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">بازو را در BotFather بله می‌سازید، Mini App را روی آدرس افزونه می‌گذارید، توکن‌ها را در پیشخوان بله گیت وارد می‌کنید و وب‌هوک را ثبت می‌کنید.</p>
+                </div>
+
+                <div class="card" style="padding: 25px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;"><i class="fas fa-flask"></i> حالت آزمایشی چیست؟</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">با توکن تست پول واقعی جابه‌جا نمی‌شود. برای فروش واقعی باید حالت عملیاتی و توکن کیف پول BotFather را فعال کنید.</p>
+                </div>
+
+                <div class="card" style="padding: 25px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;"><i class="fas fa-redo"></i> اگر مشتری پرداخت را لغو کند چه می‌شود؟</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">می‌تواند دوباره وارد درگاه شود. افزونه وضعیت پرداخت نیمه‌کاره را مدیریت می‌کند و امکان صدور فاکتور جدید را می‌دهد.</p>
+                </div>
+
+                <div class="card" style="padding: 25px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;"><i class="fas fa-shield-alt"></i> اطلاعات روی سرور واسط ذخیره می‌شود؟</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">خیر. ارتباط مستقیم بین سرور فروشگاه و API بله است. توکن بازو و توکن کیف پول فقط در سرور شما می‌مانند.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="buy">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">آماده‌اید پرداخت بله را به فروشگاه اضافه کنید؟</h2>
+            <p style="margin-bottom: 40px; max-width: 640px; margin-left: auto; margin-right: auto;">
+                همین حالا افزونه <strong>بله گیت</strong> را از راست‌چین بگیرید، مدل مینی‌اپ را انتخاب کنید، و همان روز از کیف پول بله پول بگیرید.
+            </p>
+            <a href="https://www.rtl-theme.com/" class="btn btn-primary" style="font-size: 1.3rem; padding: 20px 60px;">
+                خرید از راست‌چین
+            </a>
+            <p style="font-size: 0.85rem; margin-top: 40px; opacity: 0.9;">
+                بله گیت برای ووکامرس · نسخه ۱.۳.۰ · مینی‌اپ بله · تأیید سمت سرور · ۵۰ مدل ظاهر
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>
